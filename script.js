@@ -113,9 +113,12 @@ const dialogType = document.querySelector('#project-dialog-type');
 const dialogDescription = document.querySelector('#project-dialog-description');
 const dialogTechnologies = document.querySelector('#project-dialog-technologies');
 const dialogDeliverable = document.querySelector('#project-dialog-deliverable');
+const projectTriggers = typeof projectDialog.showModal === 'function'
+  ? document.querySelectorAll('.project-trigger')
+  : [];
 
-for (const { card } of projects) {
-  const trigger = card.querySelector('.project-trigger');
+for (const trigger of projectTriggers) {
+  const card = trigger.closest('.project-card');
   const details = projectDetails[trigger.dataset.project];
 
   trigger.addEventListener('click', () => {
@@ -128,6 +131,8 @@ for (const { card } of projects) {
       return item;
     }));
     dialogDeliverable.textContent = details.deliverable;
+    // Some browsers do not focus buttons clicked with a pointer.
+    trigger.focus({ preventScroll: true });
     projectDialog.showModal();
   });
 
