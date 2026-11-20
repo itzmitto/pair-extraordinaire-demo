@@ -46,3 +46,45 @@ function updateNavigation() {
 
 updateNavigation();
 window.addEventListener('hashchange', updateNavigation);
+
+const projectSearch = document.querySelector('#project-search');
+const projectSearchStatus = document.querySelector('.project-search-status');
+
+function normalizeSearchText(text) {
+  return text.toLocaleLowerCase('nl').normalize('NFD').replace(/\p{M}/gu, '');
+}
+
+const projects = Array.from(document.querySelectorAll('.project-grid .project-card'), (card) => ({
+  card,
+  text: [...card.querySelector('.project-copy').children]
+    .map((element) => normalizeSearchText(element.textContent))
+    .join(' '),
+}));
+
+function filterProjects() {
+  const query = normalizeSearchText(projectSearch.value).trim();
+  const terms = query ? query.split(/\s+/) : [];
+  let matches = 0;
+
+  for (const { card, text } of projects) {
+    const isMatch = terms.every((term) => text.includes(term));
+    card.hidden = !isMatch;
+    if (isMatch) matches += 1;
+  }
+
+  let message = '';
+  if (query) {
+    if (matches === 0) {
+      message = 'Geen projecten gevonden. Probeer een andere zoekterm.';
+    } else {
+      message = matches === 1 ? '1 project gevonden.' : `${matches} projecten gevonden.`;
+    }
+  }
+
+  if (projectSearchStatus.textContent !== message) projectSearchStatus.textContent = message;
+}
+
+projectSearch.addEventListener('input', filterProjects);
+window.addEventListener('pageshow', filterProjects);
+filterProjects();
+projectSearch.closest('.project-search').hidden = false;
