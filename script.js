@@ -56,7 +56,7 @@ function normalizeSearchText(text) {
 
 const projects = Array.from(document.querySelectorAll('.project-grid .project-card'), (card) => ({
   card,
-  text: [...card.querySelector('.project-copy').children]
+  text: [...card.querySelectorAll('.project-copy > p, .project-copy > h3')]
     .map((element) => normalizeSearchText(element.textContent))
     .join(' '),
 }));
@@ -88,3 +88,48 @@ projectSearch.addEventListener('input', filterProjects);
 window.addEventListener('pageshow', filterProjects);
 filterProjects();
 projectSearch.closest('.project-search').hidden = false;
+
+const projectDetails = {
+  fieldwork: {
+    description: 'Fieldwork verkent hoe een buitenmerk herkenbaar blijft op een poster en in een kleine digitale uiting. Donkergroen, een felgroen accent en grote letters dragen de identiteit. Concentrische lijnen verwijzen naar hoogtelijnen op een kaart.',
+    technologies: ['Typografie', 'Kleursysteem', 'CSS-patronen'],
+    deliverable: 'Een conceptidentiteit met een kleurenpalet, typografische regels en een postermock-up.',
+  },
+  forma: {
+    description: 'Forma verkent welke informatie iemand nodig heeft om een dagelijkse gewoonte vol te houden. Het dagscherm geeft de eerstvolgende actie voorrang. Een compacte grafiek laat zien hoe de voortgang zich over meerdere dagen ontwikkelt.',
+    technologies: ['Mobiel interfaceontwerp', 'Datavisualisatie', 'CSS-mock-ups'],
+    deliverable: 'Een mobiel appconcept met een dagscherm en een voortgangsweergave.',
+  },
+  offset: {
+    description: 'Offset brengt de uitstraling van een onafhankelijk gedrukt magazine naar het web. Grote koppen, een warm papierpalet en diagonale patronen geven het ontwerp een eigen karakter. De lay-out biedt ruimte voor beeld en langere artikelen.',
+    technologies: ['HTML', 'CSS Grid', 'Responsive CSS'],
+    deliverable: 'Een webconcept voor een onafhankelijk magazine, met een digitale omslag en een redactioneel lay-outvoorstel.',
+  },
+};
+
+const projectDialog = document.querySelector('.project-dialog');
+const dialogTitle = document.querySelector('#project-dialog-title');
+const dialogType = document.querySelector('#project-dialog-type');
+const dialogDescription = document.querySelector('#project-dialog-description');
+const dialogTechnologies = document.querySelector('#project-dialog-technologies');
+const dialogDeliverable = document.querySelector('#project-dialog-deliverable');
+
+for (const { card } of projects) {
+  const trigger = card.querySelector('.project-trigger');
+  const details = projectDetails[trigger.dataset.project];
+
+  trigger.addEventListener('click', () => {
+    dialogTitle.textContent = card.querySelector('h3').textContent;
+    dialogType.textContent = card.querySelector('.project-type').textContent;
+    dialogDescription.textContent = details.description;
+    dialogTechnologies.replaceChildren(...details.technologies.map((technology) => {
+      const item = document.createElement('li');
+      item.textContent = technology;
+      return item;
+    }));
+    dialogDeliverable.textContent = details.deliverable;
+    projectDialog.showModal();
+  });
+
+  trigger.hidden = false;
+}
