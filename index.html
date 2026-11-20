@@ -70,6 +70,7 @@
             <p class="project-type">VISUELE IDENTITEIT</p>
             <h3>Fieldwork</h3>
             <p>Een merkidentiteit voor buitenmensen, gebouwd rond krachtige typografie en aardse kleuren.</p>
+            <button class="project-trigger" type="button" aria-label="Bekijk project Fieldwork" aria-haspopup="dialog" data-project="fieldwork" hidden>Bekijk project <span aria-hidden="true">↗</span></button>
           </div>
         </article>
         <article class="project-card">
@@ -81,6 +82,7 @@
             <p class="project-type">PRODUCTDESIGN</p>
             <h3>Forma</h3>
             <p>Een rustige app die je helpt kleine gewoontes op te bouwen en je voortgang te zien.</p>
+            <button class="project-trigger" type="button" aria-label="Bekijk project Forma" aria-haspopup="dialog" data-project="forma" hidden>Bekijk project <span aria-hidden="true">↗</span></button>
           </div>
         </article>
         <article class="project-card">
@@ -95,10 +97,34 @@
             <p class="project-type">WEBDESIGN &amp; DEVELOPMENT</p>
             <h3>Offset</h3>
             <p>Een online magazine voor onafhankelijke makers, geïnspireerd op de vrijheid van drukwerk.</p>
+            <button class="project-trigger" type="button" aria-label="Bekijk project Offset" aria-haspopup="dialog" data-project="offset" hidden>Bekijk project <span aria-hidden="true">↗</span></button>
           </div>
         </article>
       </div>
     </section>
+
+    <dialog class="project-dialog" aria-labelledby="project-dialog-title">
+      <div class="project-dialog-header">
+        <div>
+          <p class="project-type" id="project-dialog-type"></p>
+          <h2 id="project-dialog-title"></h2>
+        </div>
+        <form method="dialog">
+          <button class="project-close" type="submit" autofocus>Sluiten <span aria-hidden="true">×</span></button>
+        </form>
+      </div>
+      <p id="project-dialog-description"></p>
+      <dl class="project-facts">
+        <div>
+          <dt>Technieken en technologieën</dt>
+          <dd><ul id="project-dialog-technologies" role="list"></ul></dd>
+        </div>
+        <div>
+          <dt>Uitwerking</dt>
+          <dd id="project-dialog-deliverable"></dd>
+        </div>
+      </dl>
+    </dialog>
 
     <section class="about wrap" id="about" aria-labelledby="about-title">
       <div class="about-panel">
