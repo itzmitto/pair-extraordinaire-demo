@@ -222,6 +222,20 @@ h1 em {
 }
 h2 { font-size: clamp(1.85rem, 4vw, 3.25rem); letter-spacing: -.065em; line-height: 1.08; }
 .section-heading > p { color: var(--muted); font-size: .9rem; }
+.project-search { width: min(100%, 25rem); margin-bottom: 20px; }
+.project-search label { display: block; margin-bottom: 6px; font-weight: 650; }
+.project-search input {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--muted);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+}
+.project-search input::placeholder { color: var(--muted); opacity: 1; }
+.project-search-status:not(:empty) { margin-bottom: 16px; color: var(--muted); }
 .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .project-card {
   overflow: hidden;
