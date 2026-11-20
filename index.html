@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio van Studio André, met werk op het snijvlak van digitaal ontwerp en front-endontwikkeling.">
+  <meta name="color-scheme" content="light dark">
+  <title>Studio André — Digitaal portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Naar inhoud</a>
+  <header class="site-header" id="home">
+    <div class="wrap header-inner">
+      <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">✳</span> Studio André<span class="brand-period">.</span></a>
+      <nav aria-label="Hoofdnavigatie">
+        <a href="#home" aria-current="location">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Donkere modus" aria-pressed="false" hidden>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" aria-hidden="true"><path d="M20.4 15.5A8.8 8.8 0 0 1 8.5 3.6a8.8 8.8 0 1 0 11.9 11.9Z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="dot"></span> DESIGN &amp; DEVELOPMENT</p>
+        <h1 id="hero-title">Digitaal werk.<br><em>Met karakter.</em></h1>
+        <p class="intro">Hoi, ik ben André. Ik ontwerp en bouw digitale ervaringen die helder aanvoelen en blijven hangen.</p>
+        <a class="primary-link" href="#projects">Bekijk mijn werk <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <span class="art-corner art-corner-top">A<span>.</span></span>
+        <span class="art-corner art-corner-bottom">✦</span>
+        <div class="art-window">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="orbit orbit-three"></div>
+          <div class="orbit orbit-four"></div>
+          <div class="art-core"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects wrap" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading">
+        <h2 id="projects-title">Geselecteerd werk<span class="accent">.</span></h2>
+        <p>Drie conceptprojecten</p>
+      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-art field" aria-hidden="true">
+            <div class="field-sheet">
+              <span>FIELDWORK®</span>
+              <strong>Out of<br>office<span>.</span></strong>
+              <div class="field-disc"></div>
+            </div>
+          </div>
+          <div class="project-copy">
+            <p class="project-type">VISUELE IDENTITEIT</p>
+            <h3>Fieldwork</h3>
+            <p>Een merkidentiteit voor buitenmensen, gebouwd rond krachtige typografie en aardse kleuren.</p>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-art forma" aria-hidden="true">
+            <div class="phone phone-back"><div class="phone-speaker"></div><span>forma.</span><div class="phone-ring"></div></div>
+            <div class="phone phone-front"><div class="phone-speaker"></div><span>Vandaag</span><strong>Maak tijd<br>voor jezelf.</strong><div class="phone-chart"></div><div class="phone-line"></div></div>
+          </div>
+          <div class="project-copy">
+            <p class="project-type">PRODUCTDESIGN</p>
+            <h3>Forma</h3>
+            <p>Een rustige app die je helpt kleine gewoontes op te bouwen en je voortgang te zien.</p>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-art offset" aria-hidden="true">
+            <div class="offset-cover">
+              <span>INDEPENDENT PRINT</span>
+              <strong>Offset<span>.</span></strong>
+              <div class="offset-stripes"></div>
+            </div>
+          </div>
+          <div class="project-copy">
+            <p class="project-type">WEBDESIGN &amp; DEVELOPMENT</p>
+            <h3>Offset</h3>
+            <p>Een online magazine voor onafhankelijke makers, geïnspireerd op de vrijheid van drukwerk.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="about wrap" id="about" aria-labelledby="about-title">
+      <div class="about-panel">
+        <div>
+          <p class="eyebrow"><span class="dot"></span> ABOUT</p>
+          <h2 id="about-title">Hoi, ik ben André<span class="accent">.</span></h2>
+        </div>
+        <p>Ik werk graag op het snijvlak van ontwerp en code. Ik besteed evenveel aandacht aan hoe iets werkt als aan hoe het eruitziet, van de eerste schets tot de laatste regel CSS.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>© Studio André</span>
+      <a href="#home">Terug naar boven <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+</body>
+</html>
